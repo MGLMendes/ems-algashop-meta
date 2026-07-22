@@ -163,6 +163,9 @@ services:
     environment:
       SERVICES: s3
       DEBUG: 1
+    volumes:
+      - ./etc/aws/init.sh:/etc/localstack/init/ready.d/init-aws.sh
+      - ./etc/aws:/etc/aws
     healthcheck:
       test: curl --location 'http://localhost:4566/_localstack/health'
     deploy:
